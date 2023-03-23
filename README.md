@@ -3,11 +3,11 @@
 This simulation package is meant to train the quadruped robot to walk with the deep deterministic policy gradient (DDPG), 
 and also the modified ddpg with the physic informed neural network(PINN).
 
-The objective of this modification is to improve the learning performance for the walking robot from the DDPG algorithm.
+The objective of this modification is to improve the learning performance for the quadruped walking robot from the DDPG algorithm.
 In which PINN has the potential in reducing the estimation error of the neural netowrk through the physical informed neural network.
 
-Other than improvement for the learning algorithm, the walking locomotion behavior training is take into account in this research.
-For speeding the learning process, the information of the walking sequence schematic is given in the action space training for this research. [This could be refer to the robot_env.py]
+Other than improvement for the learning algorithm, the locomotion for directional walking behavior training is take into account in this research.
+For generalizing the action-space design and speeding the learning process, the information of the walking sequence schematic is provided together with the range of angle value for each joint of the quadruped leg in the training for this research. [This could be refer to the robot_env.py]
 
 Every model trained would be stored into /tmp/ddpg
 
@@ -27,36 +27,37 @@ Noticed that in the main script for training, the agent were call to choose acti
 - utils.py : essenstial of plotting code
 
 # DDPG with PINN
+Basically all are same as above except main script and the agent script
 - robot_ddpg_pinn_main.py: main script for ddpg assisted with pinn
-- robot_env.py :
 - ddpg_pinn_torch.py : agent in pytorch with the PINN assisted
-- buffer.py 
-- network.py 
-- noise.py 
-- respawnGoal_.py 
-- utils.py 
 
 # Learned model testing in simulation
-Noticed that in the main script for testing, the agent were call to action (which will load the trained model for action)
-# DDPG
+Noticed that the main script for all the model are the same, but remember to uncomment either one for the agent source import in it 
+# DDPG and DDPG with PINN
 - learned_robot_main.py: main script for loading trained model
 - learned_robot_env.py: robot enviornment
-- ddpg_torch.py : agent in pytorch
+- ddpg_torch.py : agent in pytorch (for DDPG model)
+- ddpg_pinn_torch.py : agent in pytorch (for DDPG with PINN model)
 - buffer.py : memory buffer
 - network.py : network structure 
 - noise.py : action noise eliminator
-- respawnGoal.py : target respawn during simulation (test with special path)
 - utils.py : essenstial of plotting code
-
-# DDPG with PINN
-- learned_robot_DDPG_PINN_main.py
-- learned_robot_env.py
-- ddpg_pinn_torch.py : agent in pytorch with the PINN assisted
-- buffer.py 
-- network.py 
-- noise.py 
-- respawnGoal.py : target respawn during simulation (test with special path)
-- utils.py 
+- tmp: trained model storage
 
 # Learned model testing in real robot
-Noticed that in the main script for testing, the agent were call to action (which will load the trained model for action)
+1. Noticed that the robot should be connected appropiately with either on a single board computer(sbc) such as a raspberry pi for communicate with the remote PC or direct connect to the PC.
+2. Noticed that the main script for all the model are the same, but remember to uncomment either one for the agent source import in it 
+# DDPG and DDPG with PINN
+Basically all the script are the same except the main script and the robot environment script 
+-real_robot_main.py
+-real_robot_env.py (for the robot connect with sbc will need to initiate this file at the robot's sbc)
+
+# Dependency package for robot hardware communication
+- DynamixelSDK
+- dynamixel-workbench
+- dynamixel-workbench-msgs
+- hls_lfcd_lds_driver
+- mpu_6050_driver
+
+
+
