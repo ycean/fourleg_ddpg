@@ -1,0 +1,88 @@
+legged_robot:
+
+  gazebo_ros_control:
+    pid_gains:
+      leg1_j1:
+        p: 10
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg1_j2:
+        p: 30
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg1_j3:
+        p: 30
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg2_j1:
+        p: 10
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg2_j2:
+        p: 30
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg2_j3:
+        p: 30
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg3_j1:
+        p: 10
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg3_j2:
+        p: 30
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg3_j3:
+        p: 30
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg4_j1:
+        p: 10
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg4_j2:
+        p: 30
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true
+      leg4_j3:
+        p: 30
+        i: 0
+        d: 0.1
+        i_clamp: 0.2
+        antiwindup: false
+        publish_state: true

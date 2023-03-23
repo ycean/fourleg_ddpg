@@ -1,0 +1,55 @@
+legged_robot:
+
+  #Controllers ------------------------------------
+  joint_trajectory_controller:
+   type: effort_controllers/JointTrajectoryController
+   
+   joints:
+    - leg1_j1
+    - leg1_j2
+    - leg1_j3
+    - leg2_j1
+    - leg2_j2
+    - leg2_j3
+    - leg3_j1
+    - leg3_j2
+    - leg3_j3
+    - leg4_j1
+    - leg4_j2
+    - leg4_j3
+   
+   constraints:
+    goal_time: 0.5
+    stopped_velocity_tolerence: 0.02
+    leg1_j1: {trajectory: 0.02, goal: 0.01}
+    leg1_j2: {trajectory: 0.02, goal: 0.01}
+    leg1_j3: {trajectory: 0.02, goal: 0.01}
+    leg2_j1: {trajectory: 0.02, goal: 0.01}
+    leg2_j2: {trajectory: 0.02, goal: 0.01}
+    leg2_j3: {trajectory: 0.02, goal: 0.01}
+    leg3_j1: {trajectory: 0.02, goal: 0.01}
+    leg3_j2: {trajectory: 0.02, goal: 0.01}
+    leg3_j3: {trajectory: 0.02, goal: 0.01}
+    leg4_j1: {trajectory: 0.02, goal: 0.01}
+    leg4_j2: {trajectory: 0.02, goal: 0.01}
+    leg4_j3: {trajectory: 0.02, goal: 0.01}
+    
+   gains:
+    leg1_j1: {p: 30, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg1_j2: {p: 50, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg1_j3: {p: 50, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg2_j1: {p: 30, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg2_j2: {p: 50, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg2_j3: {p: 50, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg3_j1: {p: 30, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg3_j2: {p: 50, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg3_j3: {p: 50, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg4_j1: {p: 30, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg4_j2: {p: 50, d: 0.1, i: 0.001, i_clamp: 0.001}
+    leg4_j3: {p: 50, d: 0.1, i: 0.001, i_clamp: 0.001}
+   
+   stop_trajectory_duration: 0.5
+   state_publish_rate: 60
+   action_monitor_rate: 10
+    
+  

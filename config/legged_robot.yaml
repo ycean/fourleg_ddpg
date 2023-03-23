@@ -1,0 +1,67 @@
+legged_robot:
+  # Publish all joint states ------------------------------
+  # Create the /joint_states topic necessary in ROS
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 120
+
+  # Effect Controllers ------------------------------------
+  leg1_j1_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg1_j1
+    gain: 1
+
+  leg1_j2_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg1_j2
+    gain: 1
+
+  leg1_j3_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg1_j3
+    gain: 1
+
+  leg2_j1_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg2_j1
+    gain: 1
+
+  leg2_j2_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg2_j2
+    gain: 1
+
+  leg2_j3_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg2_j3
+    gain: 1
+
+  leg3_j1_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg3_j1
+    gain: 1
+
+  leg3_j2_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg3_j2
+    gain: 1
+
+  leg3_j3_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg3_j3
+    gain: 1
+
+  leg4_j1_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg4_j1
+    gain: 1
+
+  leg4_j2_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg4_j2
+    gain: 1
+
+  leg4_j3_position_controller:
+    type: ma_controller/MaPositionController
+    joint: leg4_j3
+    gain: 1
