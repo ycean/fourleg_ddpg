@@ -76,18 +76,29 @@ Noticed that the main script for all the model are the same, but remember to unc
 - tf.transformations
 
 # Step for running the training
+
 $ roslaunch fourleg_ddpg hello_gazebo.launch 
+
 $ cd <your_workspace>/fourleg_ddpg/src/
+
 $ ./robot_ddpg_main.py  
 
+
 # Step for examning the trained model in simulation
+
 $ roslaunch fourleg_ddpg hello_gazebo.launch 
+
 $ cd <your_workspace>/fourleg_ddpg/src/
+
 $ ./learned_robot_main.py
 
+
 # Step for examning the trained model in expeimental condition
+
 $ roslaunch fourleg_ddpg hello_real_robot.launch 
+
 $ cd <your_workspace>/fourleg_ddpg/src/
+
 $ ./real_robot_main.py
 
 
