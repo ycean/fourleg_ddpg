@@ -28,6 +28,7 @@ Noticed that in the main script for training, the agent were call to choose acti
 
 # DDPG with PINN
 Basically all are same as above except main script and the agent script
+
 - robot_ddpg_pinn_main.py: main script for ddpg assisted with pinn
 - ddpg_pinn_torch.py : agent in pytorch with the PINN assisted
 
@@ -49,6 +50,7 @@ Noticed that the main script for all the model are the same, but remember to unc
 2. Noticed that the main script for all the model are the same, but remember to uncomment either one for the agent source import in it 
 # DDPG and DDPG with PINN
 Basically all the script are the same except the main script and the robot environment script 
+
 -real_robot_main.py
 -real_robot_env.py (for the robot connect with sbc will need to initiate this file at the robot's sbc)
 
