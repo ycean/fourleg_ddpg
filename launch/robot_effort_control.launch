@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <rosparam file="$(find fourleg_ddpg)/config/legged_robot_effort_control.yaml" command="load"/>
+
+  <node name="robot_state_publisher_legged_robot" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <param name="publish_frequency" type="double" value="60.0"/>
+    <remap from="/joint_states" to="/legged_robot/joint_states"/>
+  </node>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/legged_robot" args="joint_trajectory_controller">
+  </node>
+
+</launch>

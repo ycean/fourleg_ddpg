@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <include file="$(find fourleg_ddpg)/launch/spawn_robot_urdf_effort.launch">
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0.09"/>
+    <arg name="roll" default="0"/>
+    <arg name="pitch" default="0"/>
+    <arg name="yaw" default="0.7855"/>
+    <arg name="urdf_robot_file" default="$(find fourleg_ddpg)/urdf/robot_effort_control.urdf"/>
+    <arg name="robot_name" default="legged_robot"/>
+  </include>
+</launch>

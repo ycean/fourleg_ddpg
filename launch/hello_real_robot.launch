@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="robot_core_name" default="robot_leg"/>
+  <arg name="set_laser_frame_id" default="base_scan"/>
+  <arg name="set_odom_id" default="odom"/>
+  <arg name="model" default="legged_robot"/>
+
+  <!--Real robot actuator torque initiating-->
+  
+  <include file="$(find fourleg_ddpg)/launch/legrobot_core.launch"/>
+  
+  <!--Robot preception node-->
+  
+  <!--Lidar node-->  
+  <include file="$(find fourleg_ddpg)/launch/legrobot_laser.launch">
+    <arg name="set_frame_id" value="$(arg set_laser_frame_id)"/>
+  </include>
+  
+  <!--IMU node-->  
+  <include file="$(find fourleg_ddpg)/launch/legrobot_odom.launch">
+    <arg name="set_odom_id" value="$(arg set_odom_id)"/>
+  </include>
+  
+</launch>
