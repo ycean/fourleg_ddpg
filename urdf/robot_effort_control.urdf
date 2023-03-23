@@ -1,0 +1,1040 @@
+<?xml version="1.0"?>
+<robot name="legged_robot">
+
+<link name="base_link">
+  <visual>
+    <geometry>
+      <mesh filename ="package://fourleg_ddpg/meshes/model/baseframe.stl" scale= "0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <geometry>
+      <mesh filename ="package://fourleg_ddpg/meshes/model/baseframe.stl" scale= "0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+  <inertial>
+    <mass value="1.2"/>
+    <inertia  ixx="0.0021648" ixy="0.0"  ixz="0.0"  iyy="0.0021648"  iyz="0.0"  izz="0.003"/>
+  </inertial>
+  <origin xyz="0 0 0.0" rpy="0 0 0"/>
+</link>
+
+  <gazebo reference="base_link">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>150.0</mu1>
+    <mu2>150.0</mu2>
+    <material>Gazebo/white</material>
+  </gazebo>
+
+  <link name="L1_Link1">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link1.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link1.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.360"/>
+      <inertia  ixx="0.002652" ixy="0"  ixz="0"  iyy="0.001593"  iyz="0"  izz="0.001845"/>
+    </inertial>
+    <origin xyz="0 0 0." rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L1_Link1">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <link name="L1_Link2">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link2.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link2.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.06"/>
+      <inertia  ixx="0.000356" ixy="0"  ixz="0"  iyy="0.000121"  iyz="0"  izz="0.000438"/>
+    </inertial>
+    <origin xyz="0 0 -0.032694" rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L1_Link2">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/white</material>
+  </gazebo>
+
+  <link name="L1_Link3">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link3.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link3.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.03"/>
+      <inertia  ixx="0.000370" ixy="0"  ixz="0"  iyy="0.000367"  iyz="0"  izz="0.00001476"/>
+    </inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L1_Link3">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/white</material>
+  </gazebo>
+
+  <link name="L1_contactSensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia  ixx="0.00000128" ixy="0"  ixz="0"  iyy="0.00000128"  iyz="0"  izz="0.00000128"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius ="0.0075"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius ="0.0075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="L1_contactSensor">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <link name="L2_Link1">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link1.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link1.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.360"/>
+      <inertia  ixx="0.002652" ixy="0"  ixz="0"  iyy="0.001593"  iyz="0"  izz="0.001845"/>
+    </inertial>
+    <origin xyz="0 0 0." rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L2_Link1">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <link name="L2_Link2">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link2.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link2.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.06"/>
+      <inertia  ixx="0.000356" ixy="0"  ixz="0"  iyy="0.000121"  iyz="0"  izz="0.000438"/>
+    </inertial>
+    <origin xyz="0 0 -0.032694" rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L2_Link2">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/white</material>
+  </gazebo>
+
+  <link name="L2_Link3">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link3.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link3.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.03"/>
+      <inertia  ixx="0.000370" ixy="0"  ixz="0"  iyy="0.000367"  iyz="0"  izz="0.00001476"/>
+    </inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L2_Link3">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/white</material>
+  </gazebo>
+
+  <link name="L2_contactSensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia  ixx="0.00000128" ixy="0"  ixz="0"  iyy="0.00000128"  iyz="0"  izz="0.00000128"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius ="0.0075"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius ="0.0075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="L2_contactSensor">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <link name="L3_Link1">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link1.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link1.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.360"/>
+      <inertia  ixx="0.002652" ixy="0"  ixz="0"  iyy="0.001593"  iyz="0"  izz="0.001845"/>
+    </inertial>
+    <origin xyz="0 0 0." rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L3_Link1">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <link name="L3_Link2">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link2.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link2.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.06"/>
+      <inertia  ixx="0.000356" ixy="0"  ixz="0"  iyy="0.000121"  iyz="0"  izz="0.000438"/>
+    </inertial>
+    <origin xyz="0 0 -0.032694" rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L3_Link2">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/white</material>
+  </gazebo>
+
+  <link name="L3_Link3">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link3.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link3.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.03"/>
+      <inertia  ixx="0.000370" ixy="0"  ixz="0"  iyy="0.000367"  iyz="0"  izz="0.00001476"/>
+    </inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L3_Link3">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/white</material>
+  </gazebo>
+
+  <link name="L3_contactSensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia  ixx="0.00000128" ixy="0"  ixz="0"  iyy="0.00000128"  iyz="0"  izz="0.00000128"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius ="0.0075"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius ="0.0075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="L3_contactSensor">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <link name="L4_Link1">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link1.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link1.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.360"/>
+      <inertia  ixx="0.002652" ixy="0"  ixz="0"  iyy="0.001593"  iyz="0"  izz="0.001845"/>
+    </inertial>
+    <origin xyz="0 0 0." rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L4_Link1">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <link name="L4_Link2">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link2.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link2.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.06"/>
+      <inertia  ixx="0.000356" ixy="0"  ixz="0"  iyy="0.000121"  iyz="0"  izz="0.000438"/>
+    </inertial>
+    <origin xyz="0 0 -0.032694" rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L4_Link2">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/white</material>
+  </gazebo>
+
+  <link name="L4_Link3">
+    <visual>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link3.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename ="package://fourleg_ddpg/meshes/model/link3.stl" scale= "0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.03"/>
+      <inertia  ixx="0.000370" ixy="0"  ixz="0"  iyy="0.000367"  iyz="0"  izz="0.00001476"/>
+    </inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+
+  <gazebo reference="L4_Link3">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <material>Gazebo/white</material>
+  </gazebo>
+
+  <link name="L4_contactSensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia  ixx="0.00000128" ixy="0"  ixz="0"  iyy="0.00000128"  iyz="0"  izz="0.00000128"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius ="0.0075"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius ="0.0075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="L4_contactSensor">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+ <link name="Vision_sensor1">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.05 0.05 0.05"/>
+        </geometry>
+        <material name = "Red"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.05 0.05 0.05"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+  </link>
+
+  <!--<gazebo reference="Vision_sensor1">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <material>Gazebo/Red</material>
+  </gazebo>-->
+
+  <link name="base_scan">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename ="package://fourleg_ddpg/meshes/sensors/lds.stl" scale= "0.001 0.001 0.001"/>
+        </geometry>
+        <material name = "Black"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="0.0315" radius="0.055"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="0.114"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+  </link>
+
+  <gazebo reference="base_scan">
+    <kp>1000000.0</kp>
+    <kd>1000000.0</kd>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+<!--___________________________JOINT____________________________/-->
+
+  <joint name = "leg1_j1" type = "revolute">
+    <origin xyz="0 0.0706 0.0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="L1_Link1"/>
+    <limit effort="50" lower="-1.2" upper="1.2" velocity="4"/>
+  <!--limit effort="100" lower="-0.7853981634" upper="0.7853981634" velocity="10.0"2.444936344/-->
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name = "leg1_j2" type = "revolute">
+    <origin xyz="0.0 0.0905 0.007" rpy="0.5235987756 0 0"/>
+    <parent link="L1_Link1"/>
+    <child link="L1_Link2"/>
+    <limit effort="50" lower="-0.5235987756" upper="0.5235987756" velocity="4"/>
+    <!--limit effort="20" lower="0" upper="0.5235987756" velocity="10.0"/-->
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <joint name = "leg1_j3" type = "revolute">
+    <origin xyz="0 0.10 0" rpy="0 0.5235987756 1.570796327"/>
+    <parent link="L1_Link2"/>
+    <child link="L1_Link3"/>
+    <limit effort="50" lower="-0.5235987756" upper="0.5235987756" velocity="4"/>
+    <!--limit effort="20" lower="-0.2617993878" upper="0" velocity="10.0"/-->
+    <axis xyz="0.0 1.0 0"/>
+  </joint>
+
+  <joint name = "contactSensor1" type = "fixed">
+    <origin xyz="0.0 0.0 -0.189" rpy="0 0 0"/>
+    <parent link="L1_Link3"/>
+    <child link="L1_contactSensor"/>
+  </joint>
+
+  <joint name = "leg2_j1" type = "revolute">
+    <origin xyz="0.0706 0.0 0.0" rpy="0 0 -1.570796327"/>
+    <parent link="base_link"/>
+    <child link="L2_Link1"/>
+    <limit effort="50" lower="-1.2" upper="1.2" velocity="4"/>
+  <!--limit effort="100" lower="-0.7853981634" upper="0.7853981634" velocity="10.0"0.6966563098/-->
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name = "leg2_j2" type = "revolute">
+    <origin xyz="0.0 0.0905 0.007" rpy="0.5235987756 0 0"/>
+    <parent link="L2_Link1"/>
+    <child link="L2_Link2"/>
+    <limit effort="50" lower="-0.5235987756" upper="0.5235987756" velocity="4"/>
+    <!--limit effort="20" lower="0" upper="0.5235987756" velocity="10.0"/-->
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <joint name = "leg2_j3" type = "revolute">
+    <origin xyz="0 0.10 0" rpy="0 0.5235987756 1.570796327"/>
+    <parent link="L2_Link2"/>
+    <child link="L2_Link3"/>
+    <limit effort="50" lower="-0.5235987756" upper="0.5235987756" velocity="4"/>
+    <!--limit effort="20" lower="-0.2617993878" upper="0" velocity="10.0"/-->
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name = "contactSensor2" type = "fixed">
+    <origin xyz="0.0 0.0 -0.189" rpy="0 0 0"/>
+    <parent link="L2_Link3"/>
+    <child link="L2_contactSensor"/>
+  </joint>
+
+  <joint name = "leg3_j1" type = "revolute">
+    <origin xyz="0.0 -0.0706 0.0" rpy="0 0 -3.1412"/>
+    <parent link="base_link"/>
+    <child link="L3_Link1"/>
+    <limit effort="50" lower="-1.2" upper="1.2" velocity="4"/>
+  <!--limit effort="100" lower="-0.7853981634" upper="0.7853981634" velocity="10.0"/-0.6966563098-->
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name = "leg3_j2" type = "revolute">
+    <origin xyz="0.0 0.0905 0.007" rpy="0.5235987756 0 0"/>
+    <parent link="L3_Link1"/>
+    <child link="L3_Link2"/>
+    <limit effort="50" lower="-0.5235987756" upper="0.5235987756" velocity="4"/>
+    <!--limit effort="20" lower="0" upper="0.5235987756" velocity="10.0"/-->
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <joint name = "leg3_j3" type = "revolute">
+    <origin xyz="0 0.10 0" rpy="0 0.5235987756 1.570796327"/>
+    <parent link="L3_Link2"/>
+    <child link="L3_Link3"/>
+    <limit effort="50" lower="-0.5235987756" upper="0.5235987756" velocity="4"/>
+    <!--limit effort="20" lower="-0.2617993878" upper="0" velocity="10.0"/-->
+    <axis xyz="0.0 1.0 0"/>
+  </joint>
+
+  <joint name = "contactSensor3" type = "fixed">
+    <origin xyz="0.0 0.0 -0.189" rpy="0 0 0"/>
+    <parent link="L3_Link3"/>
+    <child link="L3_contactSensor"/>
+  </joint>
+
+  <joint name = "leg4_j1" type = "revolute">
+    <origin xyz="-0.0706 0.0 0.0" rpy="0 0 1.570796327"/>
+    <parent link="base_link"/>
+    <child link="L4_Link1"/>
+    <limit effort="50" lower="-1.2" upper="1.2" velocity="4"/>
+  <!--limit effort="100" lower="-0.7853981634" upper="0.7853981634" velocity="10.0"-2.444936344/-->
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name = "leg4_j2" type = "revolute">
+    <origin xyz="0.0 0.0905 0.007" rpy="0.5235987756 0 0"/>
+    <parent link="L4_Link1"/>
+    <child link="L4_Link2"/>
+    <limit effort="50" lower="-0.5235987756" upper="0.5235987756" velocity="4"/>
+    <!--limit effort="20" lower="0" upper="0.5235987756" velocity="10.0"/-->
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <joint name = "leg4_j3" type = "revolute">
+    <origin xyz="0 0.10 0" rpy="0 0.5235987756 1.570796327"/>
+    <parent link="L4_Link2"/>
+    <child link="L4_Link3"/>
+    <limit effort="50" lower="-0.5235987756" upper="0.5235987756" velocity="4"/>
+    <!--limit effort="20" lower="-0.2617993878" upper="0" velocity="10.0"/-->
+    <axis xyz="0.0 1.0 0.0"/>
+  </joint>
+
+  <joint name = "contactSensor4" type = "fixed">
+    <origin xyz="0.0 0.0 -0.189" rpy="0 0 0"/>
+    <parent link="L4_Link3"/>
+    <child link="L4_contactSensor"/>
+  </joint>
+
+  <joint name="cam1" type="fixed">
+    <origin xyz="0 0 0.050" rpy="0 0 1.570796327"/>
+    <parent link="base_link"/>
+    <child link="Vision_sensor1"/>
+  </joint>
+
+  <joint name="scan1" type="fixed">
+    <origin xyz="0 0 0.10" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="base_scan"/>
+  </joint>
+
+  <!--                GAZEBO RELATED PART                             -->
+
+    <!-- ROS Control plugin for Gazebo -->
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/legged_robot</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+    </gazebo>
+
+    <!--Robot Odometry-->
+    <gazebo>
+      <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <topicName>odom</topicName>
+        <gaussianNoise>0.01</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+      </plugin>
+    </gazebo>
+
+    <!--IMU sensor-->
+    <gazebo>
+      <plugin name ="gazebo_ros_imu_controller" filename="libgazebo_ros_imu.so">
+        <robotNamespace>legged_robot</robotNamespace>
+        <topicName>imu/data</topicName>
+        <serviceName>imu/service</serviceName>
+        <bodyName>base_link</bodyName>
+        <gaussianNoise>0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <updateRate>5.0</updateRate>
+        <alwaysOn>true</alwaysOn>
+        <gaussianNoise>0</gaussianNoise>
+      </plugin>
+    </gazebo>
+
+    <gazebo reference="base_scan">
+      <material>Gazebo/Black</material>
+      <sensor type="ray" name="lds_lfcd_sensor">
+        <pose> 0 0 0 0 0 0</pose>
+        <visualize>true</visualize>
+        <update_rate>5</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>10</samples>
+              <resolution>1</resolution>
+              <min_angle>0.0</min_angle>
+              <max_angle>6.28319</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.120</min>
+            <max>3.5</max>
+            <resolution>0.015</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+        <plugin name="gazebo_ros_lds_lfcd_controller" filename="libgazebo_ros_laser.so">
+          <topicName>scan</topicName>
+          <frameName>base_scan</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+    <!--RGB camera-->
+  <!--  <gazebo reference="Vision_sensor1">
+  		<sensor name="RGB" type="camera">
+  			<update_rate>30.0</update_rate>
+  			<visualize>true</visualize>
+  			<camera>
+  				<horizontal_fov>1.3962</horizontal_fov>
+  				<image>
+  					<width>800</width>
+  					<height>600</height>
+  					<format>R8G8B8</format>
+  				</image>
+  				<clip>
+  					<near>0.1</near>
+  					<far>10</far>
+  				</clip>
+  				<noise>
+  					<type>gaussian</type>
+  					<mean>0.0</mean>
+  					<stddev>0.01</stddev>
+  				</noise>
+  			</camera>
+  			<plugin name="rgb_plugin" filename="libgazebo_ros_camera.so">
+  				<alwaysOn>true</alwaysOn>
+  				<updateRate>30.0</updateRate>
+  				<cameraName>/camera</cameraName>
+  				<imageTopicName>image_raw</imageTopicName>
+  				<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+  				<frameName>Vision_sensor1</frameName>
+  				<hackBaseline>0.07</hackBaseline>
+  				<distortionK1>0.0</distortionK1>
+  				<distortionK2>0.0</distortionK2>
+  				<distortionK3>0.0</distortionK3>
+  				<distortionT1>0.0</distortionT1>
+  				<distortionT2>0.0</distortionT2>
+  			</plugin>
+  		</sensor>
+  	</gazebo>-->
+
+    <!-- Depth Camera -->
+  	<!--<gazebo reference="Vision_sensor1">
+  		<sensor name="Depth" type="depth">
+  			<update_rate>0</update_rate>
+  			<camera>
+  				<horizontal_fov>1.0</horizontal_fov>
+  				<image>
+  					<width>640</width>
+  					<height>480</height>
+  					<format>R8G8B8</format>
+  				</image>
+  				<clip>
+  					<near>0.1</near>
+  					<far>3</far>
+  				</clip>
+  				<noise>
+  					<type>gaussian</type>
+  					<mean>0.0</mean>
+  					<stddev>0.01</stddev>
+  				</noise>
+  			</camera>
+  			<plugin name="depth_plugin" filename="libgazebo_ros_openni_kinect.so">
+  				<baseline>0.2</baseline>
+  				<alwaysOn>true</alwaysOn>
+  				<updateRate>30.0</updateRate>
+  				<cameraName>/camera</cameraName>
+  				<imageTopicName>/camera/depth/image_raw</imageTopicName>
+  				<cameraInfoTopicName>/camera/depth/camera_info</cameraInfoTopicName>
+  				<depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+  				<depthImageInfoTopicName>/camera/depth/camera_info</depthImageInfoTopicName>
+  				<pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+  				<frameName>Vision_sensor1</frameName>
+  				<pointCloudCutoff>0.5</pointCloudCutoff>
+  				<pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+  				<hackBaseline>0</hackBaseline>
+  				<distortionK1>0</distortionK1>
+  				<distortionK2>0</distortionK2>
+  				<distortionK3>0</distortionK3>
+  				<distortionT1>0</distortionT1>
+  				<distortionT2>0</distortionT2>
+  				<CxPrime>0</CxPrime>
+  				<Cx>0</Cx>
+  				<Cy>0</Cy>
+  				<focalLength>0</focalLength>
+  			</plugin>
+  		</sensor>
+  	</gazebo>-->
+
+    <!-- gazebo ros_joint_state_publisher plugin -->
+    <gazebo>
+    	<plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+    		<robotNamespace>/legged_robot</robotNamespace>
+    		<jointName>leg1_j1, leg1_j2, leg1_j3, leg2_j1, leg2_j2, leg2_j3, leg3_j1, leg3_j2, leg3_j3, leg4_j1, leg4_j2, leg4_j3</jointName>
+    		<updateRate>60</updateRate>
+    		<alwaysOn>true</alwaysOn>
+    	</plugin>
+    </gazebo>
+    
+    <!-- transmission -->
+    <transmission name="leg1_j1_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg1_j1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg1_j1Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg1_j2_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg1_j2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg1_j2Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg1_j3_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg1_j3">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg1_j3Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg2_j1_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg2_j1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg2_j1Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg2_j2_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg2_j2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg2_j2Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg2_j3_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg2_j3">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg2_j3Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg3_j1_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg3_j1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg3_j1Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg3_j2_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg3_j2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg3_j2Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg3_j3_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg3_j3">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg3_j3Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg4_j1_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg4_j1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg4_j1Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg4_j2_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg4_j2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg4_j2Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="leg4_j3_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg4_j3">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg4_j3Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <!-- Contact Sensor -->
+   <gazebo reference="L1_contactSensor">
+      <sensor name="L1_contactSensor_sensor" type="contact">
+        <always_on>true</always_on>
+        <contact>
+          <collision>L1_contactSensor_collision_collision_1</collision>
+        </contact>
+        <plugin name="L1_contactSensor_plugin" filename="libgazebo_ros_bumper.so">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <bumperTopicName>L1_contactSensor_state</bumperTopicName>
+          <frameName>L1_contactSensor</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+    <gazebo reference="L2_contactSensor">
+      <sensor name="L2_contactSensor_sensor" type="contact">
+        <always_on>true</always_on>
+        <contact>
+          <collision>L2_contactSensor_collision_collision_1</collision>
+        </contact>
+        <plugin name="L2_contactSensor_plugin" filename="libgazebo_ros_bumper.so">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <bumperTopicName>L2_contactSensor_state</bumperTopicName>
+          <frameName>L2_contactSensor</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+    <gazebo reference="L3_contactSensor">
+      <sensor name="L3_contactSensor_sensor" type="contact">
+        <always_on>true</always_on>
+        <contact>
+          <collision>L3_contactSensor_collision_collision_1</collision>
+        </contact>
+        <plugin name="L1_contactSensor_plugin" filename="libgazebo_ros_bumper.so">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <bumperTopicName>L3_contactSensor_state</bumperTopicName>
+          <frameName>L3_contactSensor</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+    <gazebo reference="L4_contactSensor">
+      <sensor name="L4_contactSensor_sensor" type="contact">
+        <always_on>true</always_on>
+        <contact>
+          <collision>L4_contactSensor_collision_collision_1</collision>
+        </contact>
+        <plugin name="L1_contactSensor_plugin" filename="libgazebo_ros_bumper.so">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <bumperTopicName>L4_contactSensor_state</bumperTopicName>
+          <frameName>L4_contactSensor</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+</robot>
