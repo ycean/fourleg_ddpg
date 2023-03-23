@@ -47,12 +47,12 @@ Noticed that the main script for all the model are the same, but remember to unc
 # Trained model examining in experimental work
 1. Noticed that the robot should be connected appropiately with either on a single board computer(sbc) such as a raspberry pi for communicate with the remote PC or direct connect to the PC.
 2. Noticed that the main script for all the model are the same, but remember to uncomment either one for the agent source import in it 
-3. Basically all the script are the same as in the simulation,except the main script and the robot environment script 
+3. Basically all the script are the same as in the simulation,except the main script and the robot environment script (for the robot connect with sbc will need to initiate this file at the robot's sbc)
 4. The robot hardware was setup with dynamixel MX-106 for the actuation and joint state feedback, RPLiDar for scanning the environment, MPU9250/6050 for providing the feedback of robot state.The respective device communication package are listed as in the dependency .
 
 # DDPG and DDPG with PINN
 -real_robot_main.py
--real_robot_env.py (for the robot connect with sbc will need to initiate this file at the robot's sbc)
+-real_robot_env.py 
 
 # Dependency package for robot hardware communication
 - DynamixelSDK
